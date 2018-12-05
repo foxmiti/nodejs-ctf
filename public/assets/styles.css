@@ -1,0 +1,52 @@
+body {
+    position: relative; /* For scrollyspy */
+    padding-top: 40px; /* Account for fixed navbar */
+    background-color: #fafafa;
+}
+footer {
+    position: absolute;
+    bottom: 0px;
+}
+
+.pt20 {
+    padding-top: 20px!important;
+}
+.plr20 {
+    margin: 0 20px!important;
+}
+.list-group-item {
+    border: 0px;
+    /* border-bottom: 2px solid #004697; */
+    background-color: #545b6c;
+}
+
+.list-group-item:hover {
+    background-color: #262a36 !important;
+}
+
+.sidebar {
+    position: relative;
+    background: #2a2f3c;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+}
+
+.primaryText {
+    color: #fff;
+    font-family: monospace;
+    padding: 10px;
+    text-align: center;
+}
+
+.secondaryText {
+    font-family: monospace;
+    color: #fff;
+}
+
+.primaryColor {
+    background-color: #262a36;
+}
+
+.pull-left {
+    float: left;
+}

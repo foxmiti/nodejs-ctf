@@ -7,6 +7,47 @@ footer {
     position: absolute;
     bottom: 0px;
 }
+a {
+    font-family: monospace;
+}
+.loginTitle {
+    text-align: center;
+    font-family: monospace;
+}
+
+.retroFamily {
+    font-family: monospace;
+}
+
+.logo {
+    font-size: 24px;
+    /* background-color: red; */
+    font-family: monospace;
+}
+/* .logo:hover {
+    color: #004697 !important;
+    background-color: #fafafa !important;
+    border-radius: 100px;
+    margin: 10px;
+} */
+
+.btn-primary {
+    background-color: #2a2f3c;
+    border-color: #2a2f3c;
+    font-family: monospace;
+    width: 100%;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+.btn-primary:hover {
+    background-color: #545b6c;
+    border-color: #545b6c;
+}
+
+.form-group {
+    font-family: monospace;
+}
+
 
 .pt20 {
     padding-top: 20px!important;
@@ -21,7 +62,7 @@ footer {
 }
 
 .list-group-item:hover {
-    background-color: #262a36 !important;
+    background-color: #bdc1cc !important;
 }
 
 .sidebar {

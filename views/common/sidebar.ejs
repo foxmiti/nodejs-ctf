@@ -22,6 +22,7 @@
             </div>
             <h4 class="primaryText pt20">OWASP Top 10 2013</h4>
             <div class="plr20">
+                
                 <% for (var vulnKey in vulnerabilities) { %>
                     <% if (vulnKey[1]=='x') { %>
                     <a href="/learn/vulnerability/<%=vulnKey%>" class='list-group-item'>

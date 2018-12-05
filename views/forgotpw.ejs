@@ -4,13 +4,13 @@
     <% include common/head %>
 </head>
 <body>
-	<% include common/navigation %>
+
 	<div class='container' style='min-height: 450px'><div class='row'><div class='col-md-12'>
 
 	    <div class='row'>
 	        <div class='col-md-6 col-md-offset-3'>
-	            <div class='page-header'>
-	                <h2>Reset Password</h2>
+	            <div class='page-header loginTitle'>
+	                <h2>RESET PASSWORD</h2>
 	            </div>
 
 				<% if (messages.success) { %>
@@ -28,14 +28,14 @@
 					    <fieldset>
 
 					        <div class="form-group ">
-					            <label class="  control-label" for="resetPasswordStart_login">Login </label>
+					            <label class="  control-label" for="resetPasswordStart_login">Username </label>
 					            <div class="  controls">
 
-					                <input type="text" name="login" value="" id="resetPasswordStart_login" class="form-control" placeholder="Enter login name" />
+					                <input type="text" name="login" value="" id="resetPasswordStart_login" class="form-control" placeholder="Enter username" />
 					            </div>
 					        </div>
 
-					        <input type="submit" value="Submit" id="resetPasswordStart_0" class="btn btn-primary" />
+					        <input type="submit" value="Recover" id="resetPasswordStart_0" class="btn btn-primary" />
 
 					    </fieldset>
 					</form>
@@ -48,14 +48,14 @@
 					    }
 					</script>
 
-	                <br/>
-	                <a href='/register'>Register and create new account</a>
+					<br/>
+					<a href='/login'>Return to login page</a>
 	            </div>
 	        </div>
 	    </div>
 
 
 	</div></div></div>
-	<% include common/footer %>
+	
 </body>
 </html>

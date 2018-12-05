@@ -4,12 +4,11 @@
     <% include common/head %>
 </head>
 <body>
-    <% include common/navigation %>
     <div class='container' style='min-height: 450px'><div class='row'><div class='col-md-12'>
         <div class='row'>
             <div class='col-md-6 col-md-offset-3'>
-                <div class='page-header'>
-                    <h2>Login</h2>
+                <div class='page-header loginTitle'>
+                    <h2>CTF</h2>
                 </div>
 				<% if (messages.success) { %>
 					<div class="alert alert-success"><%=messages.success%></div>
@@ -24,7 +23,7 @@
 				<form id="login" name="login" action="/login" method="post">
 				    <fieldset>
 
-				        <div class="form-group ">
+				        <div class="form-group">
 				            <label class="  control-label" for="login_login">Login </label>
 				            <div class="  controls">
 
@@ -32,7 +31,7 @@
 				            </div>
 				        </div>
 
-				        <div class="form-group ">
+				        <div class="form-group">
 				            <label class="  control-label" for="login_password">Password </label>
 				            <div class="  controls">
 
@@ -41,7 +40,7 @@
 				        </div>
 
 
-				        <input type="submit" value="Submit" id="login_0" class="btn btn-primary" />
+				        <input type="submit" value="Login" id="login_0" class="btn btn-primary" />
 
 				    </fieldset>
 				</form>
@@ -64,6 +63,6 @@
 
 
     </div></div></div>
-    <% include common/footer %>
+    
 </body>
 </html>

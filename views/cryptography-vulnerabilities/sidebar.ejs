@@ -1,0 +1,14 @@
+<div class='col-md-3'>
+        <div class='list-group sidebar'>
+            <h4 class="primaryText pt20">RETOS CRIPTOGRÁFICOS</h4>
+            <div class="plr20">
+                <% for (var vulnKey in vulnerabilities) { %>
+                    <% if (vulnKey[1]=='x') { %>
+                    <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                    </a>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </div>

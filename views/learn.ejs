@@ -4,12 +4,12 @@
     <% include common/head %>
 </head>
 <body>
-    <% include common/navigation %>
-    <div class='' style='min-height: 450px'><div class='row'><div class='col-md-12'>
+    <% include common/header %>
+    
+    <div class='container' style='min-height: 450px'><div class='row'><div class='col-md-12'>
 
-        <div class='row'>
-            <% include common/sidebar %>
-            <div class='col-md-9' style='padding: 40px'>
+        <div class='row'>            
+            <div class='col-md-12' style='padding: 40px'>
                 <% if (messages.success) { %>
                     <div class="alert alert-success"><%=messages.success%></div>
                 <% } else if (messages.danger) { %>
@@ -19,16 +19,28 @@
                 <% } else if (messages.info) {%> 
                     <div class="alert alert-info"><%= messages.info %></div>
                 <% } %>                
-                <h3>Welcome to this <strong>Catch The Flag</strong></h3>
-                <p>The <i>Catch The Flag</i> implements a set of intentionally vulnerable functions in NodeJS for learning purpose.
+                <h3>Welcome to <strong>Catch The Flags</strong></h3>
+                <p><i>Catch The Flags</i> implements a set of intentionally vulnerable functions in NodeJS for learning purpose.
                 Start by selecting one of the vulnerability class from the left menu or select one of the link below </p>
                 <br />
-                <h4>OWASP Top 10 2018</h4>
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <div class='col-md-6'>
+                    <a class="blog" href='/learn/hacking-web/vulnerability/<%=hackingWebMainVulnerability%>'>HACKING WEB</a>
+                </div>
+                <div class='col-md-6'>
+                    <a class="blog" href='/learn/cryptography/vulnerability/<%=cryptographyMainVulnerability%>'>CRYPTOGRAPHY</a>
+                </div>
+
+                <!-- <h4>OWASP Top 10 2018</h4>
                 <ul>
                     
                     <% for (var vulnKey in vulnerabilities) { %>
                         <% if (vulnKey[1]!='x') { %>
-                        <li><a href='/learn/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
+                        <li><a href='/learn/hacking-web/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
                         <% } %>
                     <% } %>
                 </ul>
@@ -38,7 +50,7 @@
                     
                     <% for (var vulnKey in vulnerabilities) { %>
                         <% if (vulnKey[1]!='x') { %>
-                        <li><a href='/learn/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
+                        <li><a href='/learn/hacking-web/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
                         <% } %>
                     <% } %>
                 </ul>
@@ -47,7 +59,7 @@
                 <ul>
                     <% for (var vulnKey in vulnerabilities) { %>
                         <% if (vulnKey[1]=='x') { %>
-                        <li><a href='/learn/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
+                        <li><a href='/learn/hacking-web/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
                         <% } %>
                     <% } %>
                 </ul>
@@ -56,10 +68,10 @@
                 <ul>
                     <% for (var vulnKey in vulnerabilities) { %>
                         <% if (vulnKey[1]=='x') { %>
-                        <li><a href='/learn/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
+                        <li><a href='/learn/cryptography/vulnerability/<%=vulnKey%>'> <%=vulnerabilities[vulnKey]%> </a></li>
                         <% } %>
                     <% } %>
-                </ul>
+                </ul> -->
             </div>
         </div>
 

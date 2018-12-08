@@ -24,12 +24,28 @@ a {
     /* background-color: red; */
     font-family: monospace;
 }
+
+.blog {
+    border-radius:5px;padding: 60px;background-color: #292e3d;text-align:center;color:#535a6e;font-size: 48px;
+}
+.blog:hover {
+    color: #fafafa;
+}
 /* .logo:hover {
     color: #004697 !important;
     background-color: #fafafa !important;
     border-radius: 100px;
     margin: 10px;
 } */
+.borderRight {
+    border-right: 1px solid #545b6c;
+}
+.borderLeft {
+    border-left: 1px solid #545b6c;
+}
+.ml50 {
+    margin-left: 50px;
+}
 
 .btn-primary {
     background-color: #2a2f3c;

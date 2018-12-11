@@ -1,25 +1,27 @@
 <div class='markdown'>
 
 <p>Injection flaws occur when an application sends untrusted data to an interpreter. Injection flaws are very prevalent, particularly in legacy code. They are often found in SQL, LDAP, Xpath, or NoSQL queries; OS commands; XML parsers, SMTP Headers, program arguments, etc. Injection flaws are easy to discover when examining code, but frequently hard to discover via testing. Scanners and fuzzers can help attackers find injection flaws.</p>
+<br />
+<p><b>Example Scenario:</b> The application uses untrusted data in the construction of the following vulnerable SQL call:</p>
 
-<p>**Example Scenario**: The application uses untrusted data in the construction of the following vulnerable SQL call:</p>
-
-<p>String query = "SELECT * FROM accounts WHERE custID='" + request.getParameter("id") + "'";</p>
-
+<p class="code"><em>String query = "SELECT * FROM accounts WHERE custID='" + request.getParameter("id") + "'";</em></p>
+<br />
 <p>The attacker modifies the `id` parameter value in her browser to send following:</p>
 
-<p>' or '1'='1. For example:</p>
+<p class="code"><em>' or '1'='1</em></p>
+<br>
+<p>For example:</p>
 
-<p>http://example.com/app/accountView?id=' or '1'='1</p>
+<p class="code"><em>http://example.com/app/accountView?id=' or '1'='1</em></p>
 
 <p>This changes the meaning of the query to return all the records from the accounts table.
 More dangerous attacks could modify data or even invoke stored procedures.</p>
 
 <p>Injection flaws are not limited to SQL backed features only, other components may be vulnerable to injection flaws such as:</p>
-
-* <a href="https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)">SQL Injection</a>
-* <a href="https://www.owasp.org/index.php/Testing_for_Command_Injection_(OTG-INPVAL-013)">OS Command Injection</a>
-* <a href="https://www.owasp.org/index.php/Testing_for_XML_Injection_(OTG-INPVAL-008)">XML Injection</a>
-* <a href="https://www.owasp.org/index.php/Testing_for_SSI_Injection_(OTG-INPVAL-009)">SSI Injection</a>
-
+<ul>
+    <li><a href="https://www.owasp.org/index.php/Testing_for_SQL_Injection_(OTG-INPVAL-005)">SQL Injection</a></li>
+    <li><a href="https://www.owasp.org/index.php/Testing_for_Command_Injection_(OTG-INPVAL-013)">OS Command Injection</a></li>
+    <li><a href="https://www.owasp.org/index.php/Testing_for_XML_Injection_(OTG-INPVAL-008)">XML Injection</a></li>
+    <li><a href="https://www.owasp.org/index.php/Testing_for_SSI_Injection_(OTG-INPVAL-009)">SSI Injection</a></li>
+</ul>
 </div>

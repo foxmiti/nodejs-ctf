@@ -18,7 +18,10 @@ a {
 .retroFamily {
     font-family: monospace;
 }
-
+.navbar-right {
+    position: absolute;
+    right: 40px;
+}
 .logo {
     font-size: 24px;
     /* background-color: red; */
@@ -124,6 +127,9 @@ a {
         position:relative;
         text-align: center;
     }
+    .sidebar {
+        width: 100vw;
+    }
 }
 @media only screen and (min-width: 992px) {
     .blog {
@@ -131,6 +137,9 @@ a {
     }
     .titleBook {
         position:fixed;
+    }
+    .sidebar {
+        width: 240px;
     }
 }
 @media only screen and (min-width: 1200px) {
@@ -141,5 +150,8 @@ a {
     }
     .titleBook {
         position:fixed;
+    }
+    .sidebar {
+        width: 280px;
     }
 }

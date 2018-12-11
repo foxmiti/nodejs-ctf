@@ -15,6 +15,6 @@ module.exports = {
 	},
 	'cryptography': {
 		'c1_challenge': 'Challenge 1',
-		'c2_challenge': 'Challenge 2',
+		'e1_exercise': 'Exercise 1',
 	},
 }

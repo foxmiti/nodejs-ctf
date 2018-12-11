@@ -1,17 +1,18 @@
 <div class="markdown">
-        <p>Se dispone de una aplicación web donde las contraseñas de los clientes están almacenadas hasheadas en MD5 y sin saltear.</p>
+        <p>There is a web application where the clients' passwords are stored in MD5 and without salted.</p>
 
-        <p>Como parte de un proceso de mejora de la seguridad se quiere modificar el almacenamiento de contraseñas para guardarlas resumidas con SHA256 y salteadas.</p>
+        <p>As part of a security improvement process we want to modify the storage of passwords to save them summarized with SHA256 and salted.</p>
         
-        <p>Con el fin de evitar resetear la contraseña a todos los usuarios; a nuestro equipo de desarrollo se nos ha pedido provisionar automáticamente aquellas contraseñas que actualmente seamos capaces de “revertir” para el máximo número de usuarios posibles.</p>
+        <p>In order to avoid resetting the password to all users; our development team has been asked to automatically provision those passwords that we are currently able to "reverse" for the maximum number of possible users.</p>
         
-        <p>La definición exacta del nuevo almacenamiento de contraseñas se encuentra disponible en el siguiente fichero:</p>
-        <p>https://github.com/jaesga/master-ciberseguridad-web/blob/master/PASSWORDS.md</p>
-        <p>El fichero adjunto [passwords.txt] contiene un extracto de los hashes de contraseñas actuales de los usuarios en MD5.</p>
-        <p>Se debe generar:</p>
+        <p>The exact definition of the new password storage is available in the following file:</p>
+        <a target="_blank" href="https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt">https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt</a>
+        <br /><br /><br />
+        <p>The attached file [passwords.txt] contains an extract of the current password hashes of the users in MD5.</p>
+        <p>You must generate:</p>
         <ul>
-        <li>>Un fichero [plain.txt] que contenga las contraseñas en plano que se hayan podido revertir (dejando líneas en blanco, para aquellas que no)</li>
-        <li>>Un fichero [new_passwords.txt] que contenga los hashes de las nuevas contraseñas ya resumidas y hasheadas (dejando nuevamente líneas en blanco, para aquellas que no se hayan podido calcular)</li>
-        <li>>El programa o script utilizado (si existe) para automatizar el proceso de conversión de contraseñas en MD5 y la generación de los ficheros solicitados</li>
+            <li><p>A file [plain.txt] that contains the passwords in plane that could have been reversed (leaving blank lines, for those that do not)</p></li>
+            <li><p>A file [new_passwords.txt] that contains the hashes of the new passwords already summarized and hashed (leaving blank lines again, for those that could not be calculated)</p></li>
+            <li><p>The program or script used (if it exists) to automate the process of converting passwords into MD5 and generating the requested files</p></li>
         </ul>
 </div>

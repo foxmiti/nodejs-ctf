@@ -1,17 +1,37 @@
 <div class='col-md-3'>
         <div class='list-group sidebar'>
-            <h4 class="primaryText pt20">RETOS CRIPTOGRÁFICOS</h4>
+            <h4 class="primaryText pt20">CHALLENGES</h4>
             <div class="plr20">
                 <% for (var vulnKey in vulnerabilities) { %>
-                    <% currentPath = "/learn/cryptography/vulnerability/"+vulnKey %>
-                    <% if(path === currentPath){ %>
-                        <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
-                            <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                        </a>
-                    <% } else {%>  
-                        <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" class='list-group-item'>
-                            <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                        </a>
+                    <% if (vulnKey[0]==='c') { %>
+                        <% currentPath = "/learn/cryptography/vulnerability/"+vulnKey %>
+                        <% if(path === currentPath){ %>
+                            <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
+                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                            </a>
+                        <% } else {%>  
+                            <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                            </a>
+                        <% } %> 
+                    <% } %> 
+                <% } %>
+            </div>
+
+            <h4 class="primaryText pt20">EXERCISES</h4>
+            <div class="plr20">
+                <% for (var vulnKey in vulnerabilities) { %>
+                    <% if (vulnKey[0]==='e') { %>
+                        <% currentPath = "/learn/cryptography/vulnerability/"+vulnKey %>
+                        <% if(path === currentPath){ %>
+                            <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
+                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                            </a>
+                        <% } else {%>  
+                            <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                            </a>
+                        <% } %> 
                     <% } %> 
                 <% } %>
             </div>

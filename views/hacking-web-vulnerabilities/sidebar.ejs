@@ -1,57 +1,25 @@
 <div class='col-md-3'>
-        <div class='list-group sidebar'>
-            <h4 class="primaryText pt20">OWASP Top 10 2018</h4>
-            <div class="plr20">
-                
-                <% for (var vulnKey in vulnerabilities) { %>
-                    <% currentPath = "/learn/hacking-web/vulnerability/"+vulnKey %>
-                    <% if (vulnKey[1]!='x') { %>
-                        <% if(path === currentPath){ %>
-                            <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
-                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                            </a>
-                        <% } else {%>  
-                            <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" class='list-group-item'>
-                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                            </a>
-                        <% } %> 
-                    <% } %>
-                <% } %>
-            </div>
-            <h4 class="primaryText pt20">OWASP Top 10 2017</h4>
-            <div class="plr20">
-                <% for (var vulnKey in vulnerabilities) { %>
-                    <% currentPath = "/learn/hacking-web/vulnerability/"+vulnKey %>
-                    <% if (vulnKey[1]!='x') { %>
-                        <% if(path === currentPath){ %>
-                            <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
-                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                            </a>
-                        <% } else {%>  
-                            <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" class='list-group-item'>
-                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                            </a>
-                        <% } %> 
-                    <% } %>
-                <% } %>
-            </div>
-            <h4 class="primaryText pt20">OWASP Top 10 2013</h4>
-            <div class="plr20">
-                
-                <% for (var vulnKey in vulnerabilities) { %>
-                    <% currentPath = "/learn/hacking-web/vulnerability/"+vulnKey %>
-                    <% if (vulnKey[1]=='x') { %>
-                        <% if(path === currentPath){ %>
-                            <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
-                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                            </a>
-                        <% } else {%>  
-                            <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" class='list-group-item'>
-                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                            </a>
-                        <% } %> 
-                    <% } %>
-                <% } %>
-            </div>
+    <div class='list-group sidebar'>
+        <div class='col-xs-6' style="text-align: center">
+            <% if (mode === 1) { %>
+                <a style="background-color:#545b6c" href="<%= layersPath %>" class="btn btn-primary"> LAYERS </a>
+            <% } else if(mode === 2){%>
+                <a href="<%= layersPath %>" class="btn btn-primary"> LAYERS </a>
+            <% } %>
         </div>
+        <div class='col-xs-6' style="text-align: center">
+            <% if (mode === 2) { %>
+                <a style="background-color:#545b6c" href="<%= owaspPath %>" class="btn btn-primary"> OWASP </a>
+            <% } else if(mode === 1){%>
+                <a href="<%= owaspPath %>" class="btn btn-primary"> OWASP </a>
+            <% } %>
+        </div>
+        
+        <br><br><br>
+        <% if (mode === 1) { %>
+            <% include layers %>
+        <% } else if(mode === 2){%> 
+            <% include owasp %>
+        <% } %>
     </div>
+</div>

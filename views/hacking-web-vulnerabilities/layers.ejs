@@ -1,0 +1,52 @@
+<h4 class="primaryText pt20">LAYERS</h4>
+    <div class="plr20">
+        <% for (var vulnKey in vulnerabilities) { %>
+            <% currentPath = "/learn/hacking-web/vulnerability/"+vulnKey %>
+            <% if (vulnKey[1]!='x') { %>
+                <% if(path === currentPath){ %>
+                    <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
+                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                    </a>
+                <% } else {%>  
+                    <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                    </a>
+                <% } %> 
+            <% } %>
+        <% } %>
+    </div>
+    <h4 class="primaryText pt20">OWASP Top 10 2017</h4>
+    <div class="plr20">
+        <% for (var vulnKey in vulnerabilities) { %>
+            <% currentPath = "/learn/hacking-web/vulnerability/"+vulnKey %>
+            <% if (vulnKey[1]!='x') { %>
+                <% if(path === currentPath){ %>
+                    <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
+                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                    </a>
+                <% } else {%>  
+                    <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                    </a>
+                <% } %> 
+            <% } %>
+        <% } %>
+    </div>
+    <h4 class="primaryText pt20">OWASP Top 10 2013</h4>
+    <div class="plr20">
+        
+        <% for (var vulnKey in vulnerabilities) { %>
+            <% currentPath = "/learn/hacking-web/vulnerability/"+vulnKey %>
+            <% if (vulnKey[1]=='x') { %>
+                <% if(path === currentPath){ %>
+                    <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
+                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                    </a>
+                <% } else {%>  
+                    <a href="/learn/hacking-web/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                    </a>
+                <% } %> 
+            <% } %>
+        <% } %>
+    </div>

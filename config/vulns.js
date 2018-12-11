@@ -14,7 +14,7 @@ module.exports = {
 		'ax_redirect': 'A10:2013 Unvalidated Redirects and Forwards',
 	},
 	'cryptography': {
-		'ax_csrf': 'A8:2013  Cross-site Request Forgery',
-		'ax_redirect': 'A10:2013 Unvalidated Redirects and Forwards',
+		'c1_challenge': 'Challenge 1',
+		'c2_challenge': 'Challenge 2',
 	},
 }

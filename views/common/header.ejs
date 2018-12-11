@@ -13,14 +13,27 @@
       
       <ul class='nav navbar-nav navbar-right'>
           <li class="borderLeft">
-              <a href='/learn/hacking-web/vulnerability/a1_injection'>
-                  Hacking Web
-              </a>
+            <% if(type && type === 'web'){ %>
+                <a style="color:white" href='/learn/hacking-web/vulnerability/a1_injection'>
+                    Hacking Web
+                </a>
+            <% } else{%>
+                <a href='/learn/hacking-web/vulnerability/a1_injection'>
+                    Hacking Web
+                </a>
+            <% } %>
+
           </li>
           <li class="borderLeft borderRight">
-              <a href='/learn/cryptography/vulnerability/ax_csrf'>
-                  Cryptography
-              </a>
+            <% if(type && type === 'crypto'){ %>
+                <a style="color:white" href='/learn/cryptography/vulnerability/ax_csrf'>
+                    Cryptography
+                </a>
+            <% } else{%>
+                <a href='/learn/cryptography/vulnerability/ax_csrf'>
+                    Cryptography
+                </a>
+            <% } %>
           </li>
           <% if(messages.authenticated){ %>
           <li class="ml50">

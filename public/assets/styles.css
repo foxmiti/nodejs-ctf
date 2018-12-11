@@ -26,8 +26,32 @@ a {
 }
 
 .blog {
-    border-radius:5px;padding: 60px;background-color: #292e3d;text-align:center;color:#535a6e;font-size: 48px;
+    border-radius:5px;
+    background-color: #292e3d;
+    text-align:center;
+    color:#535a6e;
+    font-size: 48px;
 }
+
+@media only screen and (min-width: 992px) {
+    .blog {
+        padding: 20px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .blog {
+        font-size: 40px;
+        padding: 5px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .blog {
+        top: 30px;
+        position: relative;
+        padding: 60px;
+    }
+}
+
 .blog:hover {
     color: #fafafa;
 }

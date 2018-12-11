@@ -18,7 +18,8 @@ module.exports = function (passport) {
 			vuln_scenario: req.params.vuln + '/scenario',
 			vuln_description: req.params.vuln + '/description',
 			vuln_reference: req.params.vuln + '/reference',
-			vulnerabilities:vulnDict['hackingWeb']
+			vulnerabilities:vulnDict['hackingWeb'],
+			path: '/learn/hacking-web/vulnerability/'+req.params.vuln
 		}, function (err, html) {
 			if (err) {
 				console.log(err)
@@ -36,7 +37,8 @@ module.exports = function (passport) {
 			vuln_scenario: req.params.vuln + '/scenario',
 			vuln_description: req.params.vuln + '/description',
 			vuln_reference: req.params.vuln + '/reference',
-			vulnerabilities:vulnDict['cryptography']
+			vulnerabilities:vulnDict['cryptography'],
+			path: '/learn/cryptography/vulnerability/'+req.params.vuln
 		}, function (err, html) {
 			if (err) {
 				console.log(err)

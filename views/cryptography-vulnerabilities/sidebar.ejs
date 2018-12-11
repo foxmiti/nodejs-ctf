@@ -4,9 +4,16 @@
             <div class="plr20">
                 <% for (var vulnKey in vulnerabilities) { %>
                     <% if (vulnKey[1]=='x') { %>
-                    <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" class='list-group-item'>
-                        <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
-                    </a>
+                        <% currentPath = "/learn/cryptography/vulnerability/"+vulnKey %>
+                        <% if(path === currentPath){ %>
+                            <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
+                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                            </a>
+                        <% } else {%>  
+                            <a href="/learn/cryptography/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                                <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
+                            </a>
+                        <% } %> 
                     <% } %>
                 <% } %>
             </div>

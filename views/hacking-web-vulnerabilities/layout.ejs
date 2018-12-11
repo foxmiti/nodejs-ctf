@@ -10,16 +10,20 @@
     <div class='row'>
         <% include sidebar %>
         <div class='col-md-9' style='padding: 40px'>                
-            <h3><%=vuln_title%></h3>
-
-            <h4>Scenario</h4>
-            <%- include(vuln_scenario) %>
-
-            <h4>Overview</h4>
-            <%- include(vuln_description) %>
-
-            <h4>Reference</h4>
-            <%- include(vuln_reference) %>
+                <%if (vuln_title) {%>
+                    <h3><%=vuln_title%></h3>
+                    <br>
+                    <h4>Scenario</h4>
+                    <%- include(vuln_scenario) %>
+                    <br>
+                    <h4>Overview</h4>
+                    <%- include(vuln_description) %>
+                    <br>
+                    <h4>Reference</h4>
+                    <%- include(vuln_reference) %>
+                <% } else {%>
+                    <%- include info/description %>
+                <% }%>
         </div>
     </div>
 

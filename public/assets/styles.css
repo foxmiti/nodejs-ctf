@@ -33,34 +33,9 @@ a {
     font-size: 48px;
 }
 
-@media only screen and (min-width: 992px) {
-    .blog {
-        padding: 20px;
-    }
-}
-@media only screen and (max-width: 992px) {
-    .blog {
-        font-size: 40px;
-        padding: 5px;
-    }
-}
-@media only screen and (min-width: 1200px) {
-    .blog {
-        top: 30px;
-        position: relative;
-        padding: 60px;
-    }
-}
-
 .blog:hover {
     color: #fafafa;
 }
-/* .logo:hover {
-    color: #004697 !important;
-    background-color: #fafafa !important;
-    border-radius: 100px;
-    margin: 10px;
-} */
 .borderRight {
     border-right: 1px solid #545b6c;
 }
@@ -101,6 +76,12 @@ a {
     background-color: #545b6c;
 }
 
+.titleBook {
+    font-size: 68px;
+    top: 42vh;
+    position:fixed;
+}
+
 .list-group-item:hover {
     background-color: #bdc1cc !important;
 }
@@ -131,4 +112,34 @@ a {
 
 .pull-left {
     float: left;
+}
+
+@media only screen and (max-width: 992px) {
+    .blog {
+        font-size: 40px;
+        padding: 5px;
+    }
+    .titleBook {
+        top: 0vh;
+        position:relative;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .blog {
+        padding: 20px;
+    }
+    .titleBook {
+        position:fixed;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .blog {
+        top: 30px;
+        position: relative;
+        padding: 60px;
+    }
+    .titleBook {
+        position:fixed;
+    }
 }

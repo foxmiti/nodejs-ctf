@@ -11,6 +11,8 @@
         <% include sidebar %>
         <div class='col-md-9' style='padding: 40px'>
             <%if (vuln_title) {%>
+                <h3><%=vuln_title%></h3>
+                <br />
                 <%- include(vuln_description) %>
             <% } else {%>
                 <%- include info/description %>

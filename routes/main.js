@@ -61,12 +61,29 @@ module.exports = function (passport) {
 		res.render('cryptography-vulnerabilities/layout', {
 			vuln: req.params.vuln,
 			vuln_title: vulnDict['cryptography'][req.params.vuln],
-			vuln_scenario: req.params.vuln + '/scenario',
 			vuln_description: req.params.vuln + '/description',
 			vuln_reference: req.params.vuln + '/reference',
 			vulnerabilities:vulnDict['cryptography'],
 			path: '/learn/cryptography/vulnerability/'+req.params.vuln,
 			type: 'crypto'
+		}, function (err, html) {
+			if (err) {
+				console.log(err)
+				res.status(404).send('404')
+			} else {
+				res.send(html)
+			}
+		})
+	})
+
+	router.get('/learn/ctf/:vuln', authHandler.isAuthenticated, function (req, res) {
+		res.render('ctf/layout', {
+			vuln: req.params.vuln,
+			vuln_title: vulnDict['ctf'][req.params.vuln],
+			vuln_description: req.params.vuln + '/description',
+			vulnerabilities:vulnDict['ctf'],
+			path: '/learn/ctf/'+req.params.vuln,
+			type: 'ctf'
 		}, function (err, html) {
 			if (err) {
 				console.log(err)

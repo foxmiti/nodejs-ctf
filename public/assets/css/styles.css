@@ -39,6 +39,9 @@ a {
 .blog:hover {
     color: #fafafa;
 }
+a {
+    text-decoration: none!important;
+}
 .borderRight {
     border-right: 1px solid #545b6c;
 }

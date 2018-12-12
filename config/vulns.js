@@ -17,4 +17,10 @@ module.exports = {
 		'c1_challenge': 'Challenge 1',
 		'e1_exercise': 'Exercise 1',
 	},
+	'ctf': {
+		'1': 'CTF 1',
+		'2': 'CTF 2',
+		'3': 'CTF 3',
+		'4': 'CTF 4',
+	}
 }

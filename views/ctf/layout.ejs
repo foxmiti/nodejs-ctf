@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../common/head %>
+</head>
+<body> 
+    <% include ../common/header %>
+<div class='container' style='min-height: 450px;margin-left: 0px; padding-left: 0px;'><div class='row'><div class='col-md-12'>
+
+    <div class='row'>
+        <% include sidebar %>
+        <div class='col-md-9' style='padding: 40px'>
+            <%if (vuln_title) {%>
+                <h3><%=vuln_title%></h3>
+                <br />
+                <%- include(vuln_description) %>
+            <% } else {%>
+                <%- include info/description %>
+            <% }%>
+        </div>
+    </div>
+
+</div></div></div>
+</body>
+</html>

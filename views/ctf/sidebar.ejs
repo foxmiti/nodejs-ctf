@@ -2,13 +2,13 @@
         <div class='list-group sidebar'>
             <div class="plr20 pt20">
                 <% for (var vulnKey in vulnerabilities) { %>
-                    <% currentPath = "/learn/ctf/"+vulnKey %>
+                    <% currentPath = "/ctf/"+vulnKey %>
                     <% if(path === currentPath){ %>
-                        <a href="/learn/ctf/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
+                        <a href="/ctf/<%=vulnKey%>" style="background-color: #bdc1cc" class='list-group-item'>
                             <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
                         </a>
                     <% } else {%>  
-                        <a href="/learn/ctf/<%=vulnKey%>" class='list-group-item'>
+                        <a href="/ctf/<%=vulnKey%>" class='list-group-item'>
                             <p class="secondaryText"><%=vulnerabilities[vulnKey]%></p>
                         </a>
                     <% } %> 

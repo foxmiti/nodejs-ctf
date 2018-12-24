@@ -66,13 +66,13 @@ module.exports = function (passport) {
 		})
 	})
 
-	router.get('/learn/ctf/:vuln', authHandler.isAuthenticated, function (req, res) {
+	router.get('/ctf/:vuln', authHandler.isAuthenticated, function (req, res) {
 		res.render('ctf/layout', {
 			vuln: req.params.vuln,
 			vuln_title: vulnDict['ctf'][req.params.vuln],
 			vuln_description: req.params.vuln + '/description',
 			vulnerabilities:vulnDict['ctf'],
-			path: '/learn/ctf/'+req.params.vuln,
+			path: '/ctf/'+req.params.vuln,
 			type: 'ctf'
 		}, function (err, html) {
 			if (err) {
@@ -115,14 +115,14 @@ module.exports = function (passport) {
 
 	router.post('/login', passport.authenticate('login', {
 		// successRedirect: '/learn',
-		successRedirect: '/learn/ctf/home',
+		successRedirect: '/ctf/home',
 		failureRedirect: '/login',
 		failureFlash: true
 	}))
 
 	router.post('/register', passport.authenticate('signup', {
 		// successRedirect: '/learn',
-		successRedirect: '/learn/ctf/home',
+		successRedirect: '/ctf/home',
 		failureRedirect: '/register',
 		failureFlash: true
 	}))

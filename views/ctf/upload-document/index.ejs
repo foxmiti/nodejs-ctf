@@ -1,14 +1,14 @@
 
-    <div class='container' style='min-height: 450px'><div class='row'><div class='col-md-12'>
 
-        <h2>
-            <i class='fa fa-upload'></i> Bulk Import Products
-        </h2>
 
+<div class='row'>
+    <div class="col-md-12">
+        <h3>Import your documents</h3>
+    </div>
+    <div class='col-md-12'>
         <% include ../../common/infoBoxes %>
 
         <div>
-            <h3>Upload products</h3>
             <form encType="multipart/form-data" method="post" action="/app/bulkproducts<% if(output.legacy){%>output.legacy<%}%>">
                 <div class="input-group mb-3">
                     <div class="products-file">
@@ -44,5 +44,5 @@
                 <pre style="white-space: pre-wrap;">[{"name":"Xbox 360","code":"15","tags":"gaming console","description":"Microsoft's flagship gaming console"},{"name":"Playstation 3","code":"17","tags":"gaming console","description":"Sony's flagshipgaming console"}]</pre>
             <%} %>
         </div>
-        </div></div></div>
+        </div></div>
 

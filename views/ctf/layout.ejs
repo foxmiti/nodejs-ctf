@@ -6,7 +6,7 @@
 <body>
     <% needSidebar = (path === '/ctf/home' || path === '/ctf/create-new-document' || path === '/ctf/sign-document' || path === '/ctf/upload-document' || path === '/ctf/edit-document') %>
     <% include ../common/header %>
-    <div class='container' style='min-height: 450px;margin-left: 0px; padding-left: 0px;'>
+    <div class='container' style='margin-left: 0px; padding-left: 0px;'>
         <div class='row'>
             <div class='col-md-12'>
                 <div class='row'>
@@ -14,13 +14,10 @@
                         <% include sidebar %>
                         <div class='col-md-9' style='padding: 40px'>
                             <h3><%=vuln_title%></h3>
-                            <br />
                             <%- include(vuln_description) %>
                         </div>
                     <% } else {%> 
-                        <div class='col-md-12' style='padding: 40px'>
-                            <h3><%=vuln_title%></h3>
-                            <br />
+                        <div class='col-md-12' style='padding: 80px'>
                             <%- include(vuln_description) %>
                         </div>
                     <% }%> 

@@ -114,7 +114,7 @@ module.exports = function (passport) {
 		res.render('ctf/layout', {
 			vuln: vuln,
 			vuln_title: vulnDict['ctf'][vuln],
-			vuln_description: vuln + '/description',
+			vuln_description: vuln + '/index',
 			vulnerabilities:vulnDict['ctf'],
 			path: '/ctf/'+vuln,
 			type: 'ctf',
@@ -189,7 +189,7 @@ module.exports = function (passport) {
 		res.render('ctf/layout', {
 			vuln: vuln,
 			vuln_title: vulnDict['ctf'][vuln],
-			vuln_description: vuln + '/description',
+			vuln_description: vuln + '/index',
 			vulnerabilities:vulnDict['ctf'],
 			path: '/ctf/' + vuln,
 			type: 'ctf',

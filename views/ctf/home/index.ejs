@@ -5,16 +5,8 @@
         </h2>
     </div>
     <div class='col-md-12'>
-        <% if (output && output.searchTerm) { %>
-            <p class="bg-success">
-                Listing products with <strong>search query: </strong> <%- output.searchTerm %>
-                &nbsp; &nbsp;
-                <small><a href="/ctf/home">
-                    <i class="fa fa-remove"></i> Clear
-                </a></small>
-            </p>
-        <% } %>
         
+        <% include filters %>
         <% include ../../common/infoBoxes %>
 
         <table class='table'>
@@ -24,6 +16,7 @@
                 <th>Code</th>
                 <th>Tags</th>
                 <th>Description</th>
+                <th>Bought</th>
                 <th></th>
             </tr>
             <% if (output && output.products) { for(var i=0; i<output.products.length; i++) { %>
@@ -33,6 +26,7 @@
                 <td><%- output.products[i].code %></td>
                 <td><%- output.products[i].tags %></td>
                 <td><%- output.products[i].description %></td>
+                <td><%- output.products[i].isBought %></td>
                 <td>
                     <a href='/ctf/edit-document?id=<%=output.products[i].id%>'>Edit</a>
                 </td>

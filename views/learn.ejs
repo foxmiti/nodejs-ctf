@@ -11,17 +11,9 @@
 
         <div class='row'>            
             <div class='col-md-12' style='padding: 40px'>
-                <% if (messages.success) { %>
-                    <div class="alert alert-success"><%=messages.success%></div>
-                <% } else if (messages.danger) { %>
-                    <div class="alert alert-danger"><%= messages.danger %></div>
-                <% } else if (messages.warning) {%> 
-                    <div class="alert alert-warning"><%= messages.warning %></div>
-                <% } else if (messages.info) {%> 
-                    <div class="alert alert-info"><%= messages.info %></div>
-                <% } %>                
-                <h3>Welcome to <strong>Attack My Web</strong></h3>
-                <p><i>Attack My Web</i> implements a set of intentionally vulnerable functions in NodeJS for learning purpose.
+                <% include common/infoBoxes %>               
+                <h3>Welcome to <strong>Attack My Admin</strong></h3>
+                <p><i>Attack My Admin</i> implements a set of intentionally vulnerable functions in NodeJS for learning purpose.
                 Start by selecting which of the following subjects you want to practise:</p>
                 <br />
                 <br />

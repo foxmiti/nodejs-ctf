@@ -1,18 +1,61 @@
-<div class="markdown">
-        <p>There is a web application where the clients' passwords are stored in MD5 and without salted.</p>
+<div class='row'>
+    <% if (output.canUpload) { %>
+        <div class='col-md-12'>
+            <h2 class='pull-right'>
+                <a href='/ctf/upload-document' class='btn btn-primary'><i class="fa fa-upload"></i> Upload Documents</a>
+            </h2>
+        </div>
+    <% } %>
+    <div class='col-md-12'>
+    <% include ../../common/infoBoxes %>
 
-        <p>As part of a security improvement process we want to modify the storage of passwords to save them summarized with SHA256 and salted.</p>
-        
-        <p>In order to avoid resetting the password to all users; our development team has been asked to automatically provision those passwords that we are currently able to "reverse" for the maximum number of possible users.</p>
-        
-        <p>The exact definition of the new password storage is available in the following file:</p>
-        <a target="_blank" href="https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt">https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt</a>
-        <br /><br /><br />
-        <p>The attached file [passwords.txt] contains an extract of the current password hashes of the users in MD5.</p>
-        <p>You must generate:</p>
-        <ul>
-            <li><p>A file [plain.txt] that contains the passwords in plane that could have been reversed (leaving blank lines, for those that do not)</p></li>
-            <li><p>A file [new_passwords.txt] that contains the hashes of the new passwords already summarized and hashed (leaving blank lines again, for those that could not be calculated)</p></li>
-            <li><p>The program or script used (if it exists) to automate the process of converting passwords into MD5 and generating the requested files</p></li>
-        </ul>
-</div>
+    <form id="addEditProduct" name="addEditProduct" action="/app/modifyproduct" method="post">
+        <fieldset>
+
+            <input type="hidden" name="id" value="<%= output.product.id %>" id="addEditProduct_product_id" />
+
+            <div class="form-group ">
+                <label class="  control-label" for="addEditProduct_product_name">Product Name </label>
+                <div class="  controls">
+
+                    <input type="text" name="name" value="<%= output.product.name %>" id="addEditProduct_product_name" class="form-control" placeholder="Enter product name" />
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label class="  control-label" for="addEditProduct_product_code">Product Code </label>
+                <div class="  controls">
+
+                    <input type="text" name="code" value="<%= output.product.code %>" id="addEditProduct_product_code" class="form-control" placeholder="Enter product code" />
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label class="  control-label" for="addEditProduct_product_tags">Product Tags </label>
+                <div class="  controls">
+
+                    <input type="text" name="tags" value="<%= output.product.tags %>" id="addEditProduct_product_tags" class="form-control" placeholder="Enter product tags eg. Tag1,Tag2,Tag3" />
+                </div>
+            </div>
+            
+            <div class="form-group ">
+                <label class="  control-label" for="addEditProduct_product_description">Product Description </label>
+                <div class="  controls">
+                    <textarea name="description" cols="" rows="" id="addEditProduct_product_description" class="form-control"><%= output.product.description %></textarea>
+                </div>
+            </div>
+
+            <input type="submit" value="Submit" id="addEditProduct_0" class="btn btn-primary" />
+
+        </fieldset>
+    </form>
+
+    <script type="text/javascript">
+        if (typeof jQuery != 'undefined') {
+            if (typeof jQuery.fn.tooltip == 'function') {
+                jQuery('i.s2b_tooltip').tooltip();
+            }
+        }
+    </script>
+
+    </div></div>

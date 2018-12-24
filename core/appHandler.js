@@ -55,6 +55,7 @@ module.exports.listProducts = function (req, res) {
 	})
 }
 
+
 module.exports.productSearch = function (req, res) {
 	db.Product.findAll({
 		where: {

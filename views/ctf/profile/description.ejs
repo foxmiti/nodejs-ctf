@@ -1,18 +1,64 @@
-<div class="markdown">
-        <p>There is a web application where the clients' passwords are stored in MD5 and without salted.</p>
+<div class='markdown'>
+<div class='row'><div class='col-md-12'>
 
-        <p>As part of a security improvement process we want to modify the storage of passwords to save them summarized with SHA256 and salted.</p>
-        
-        <p>In order to avoid resetting the password to all users; our development team has been asked to automatically provision those passwords that we are currently able to "reverse" for the maximum number of possible users.</p>
-        
-        <p>The exact definition of the new password storage is available in the following file:</p>
-        <a target="_blank" href="https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt">https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt</a>
-        <br /><br /><br />
-        <p>The attached file [passwords.txt] contains an extract of the current password hashes of the users in MD5.</p>
-        <p>You must generate:</p>
-        <ul>
-            <li><p>A file [plain.txt] that contains the passwords in plane that could have been reversed (leaving blank lines, for those that do not)</p></li>
-            <li><p>A file [new_passwords.txt] that contains the hashes of the new passwords already summarized and hashed (leaving blank lines again, for those that could not be calculated)</p></li>
-            <li><p>The program or script used (if it exists) to automate the process of converting passwords into MD5 and generating the requested files</p></li>
-        </ul>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-5'>
+            <h2> User Profile </h2>
+
+            <% include ../../common/infoBoxes %>
+
+            <form id="editUser" name="editUser" action="/app/useredit" method="post">
+                <fieldset>
+                    <h3> Update User Information </h3><br>
+                    
+                    <input type="hidden" name="id" value="<%= userId %>" id="editUser_userId" />
+                    
+                    <div class="form-group ">
+                        <label class="  control-label" for="editUser_name">Name </label>
+                        <div class="  controls">
+
+                            <input type="text" name="name" value="<%= userName %>" id="editUser_name" class="form-control" placeholder="Enter your name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="  control-label" for="editUser_email">Email </label>
+                        <div class="  controls">
+
+                            <input type="text" name="email" value="<%= userEmail %>" id="editUser_email" class="form-control" placeholder="Enter your email" />
+                        </div>
+                    </div><br>
+                    <h3> Change Password </h3><br>
+                    <div class="form-group ">
+                        <label class="  control-label" for="editUser_password">New Password </label>
+                        <div class="  controls">
+
+                            <input type="password" name="password" id="editUser_password" class="form-control" placeholder="Enter new password" />
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="  control-label" for="editUser_passwordConfirmation">Password Confirmation </label>
+                        <div class="  controls">
+
+                            <input type="password" name="cpassword" id="editUser_passwordConfirmation" class="form-control" placeholder="Enter password confirmation" />
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Submit" id="editUser_0" class="btn btn-primary" />
+
+                </fieldset>
+            </form>
+
+            <script type="text/javascript">
+                if (typeof jQuery != 'undefined') {
+                    if (typeof jQuery.fn.tooltip == 'function') {
+                        jQuery('i.s2b_tooltip').tooltip();
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+</div></div>
 </div>

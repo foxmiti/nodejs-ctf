@@ -4,7 +4,6 @@
     <% include ../common/head %>
 </head>
 <body>
-    <% include ../common/header %>
     <div class='container' style='min-height: 450px'><div class='row'><div class='col-md-12'>
 
         <h2>
@@ -25,15 +24,7 @@
             </p>
         <% } %>
 
-        <% if (messages.success) { %>
-            <div class="alert alert-success"><%=messages.success%></div>
-        <% } else if (messages.danger) { %>
-            <div class="alert alert-danger"><%= messages.danger %></div>
-        <% } else if (messages.warning) {%> 
-            <div class="alert alert-warning"><%= messages.warning %></div>
-        <% } else if (messages.info) {%> 
-            <div class="alert alert-info"><%= messages.info %></div>
-        <% } %>
+        <% include ../common/infoBoxes %>
 
         <table class='table'>
             <tr>

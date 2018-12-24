@@ -91,7 +91,7 @@ module.exports.resetPwSubmit = function (req, res) {
 				}
 			})
 		} else {
-			req.flash('danger', "Passowords do not match")
+			req.flash('danger', "Passwords do not match")
 			res.render('resetpw', {
 				login: req.query.login,
 				token: req.query.token

@@ -1,6 +1,8 @@
 var router = require('express').Router()
 var vulnDict = require('../config/vulns')
 var authHandler = require('../core/authHandler')
+var db = require('../models')
+const Op = db.Sequelize.Op
 
 module.exports = function (passport) {
 	router.get('/', authHandler.isAuthenticated, function (req, res) {
@@ -65,15 +67,62 @@ module.exports = function (passport) {
 			}
 		})
 	})
-
-	router.get('/ctf/:vuln', authHandler.isAuthenticated, function (req, res) {
+	async function initCTFGetOutput(req) {
+		let output = {};
+		switch (req.params.vuln) {
+			case 'home':
+				const products = await db.Product.findAll();
+				output = {
+					products
+				}
+				break;
+			case 'create-new-document':
+			case 'edit-document':
+				const isCreateNewDocument = req.params.vuln === 'create-new-document';
+				if (!req.query.id || req.query.id === '') {
+					output = {
+						product: {},
+						canUpload: isCreateNewDocument
+					}
+				} else {
+					let product = await db.Product.find({
+						where: {
+							'id': req.query.id
+						}
+					})
+					if (!product) {
+						product = {}
+					}
+					output = {
+						product,
+						canUpload: isCreateNewDocument
+					}
+				}
+				break;
+			case 'upload-document':
+				output = {
+					legacy: req.query.legacy,
+				}
+				break;
+		}
+		return output;
+	}
+	router.get('/ctf/:vuln', authHandler.isAuthenticated, async function (req, res) {
+		const { vuln } = req.params;
+		let output = await initCTFGetOutput(req);
+		
 		res.render('ctf/layout', {
-			vuln: req.params.vuln,
-			vuln_title: vulnDict['ctf'][req.params.vuln],
-			vuln_description: req.params.vuln + '/description',
+			vuln: vuln,
+			vuln_title: vulnDict['ctf'][vuln],
+			vuln_description: vuln + '/description',
 			vulnerabilities:vulnDict['ctf'],
-			path: '/ctf/'+req.params.vuln,
-			type: 'ctf'
+			path: '/ctf/'+vuln,
+			type: 'ctf',
+			// For the profile
+			userId: req.user.id,
+			userEmail: req.user.email,
+			userName: req.user.name,
+			output
 		}, function (err, html) {
 			if (err) {
 				console.log(err)
@@ -82,7 +131,8 @@ module.exports = function (passport) {
 				res.send(html)
 			}
 		})
-	})
+	});
+	
 
 	router.get('/learn', authHandler.isAuthenticated, function (req, res) {
 		const keysHackingWeb = Object.keys(vulnDict['hackingWeb']);
@@ -112,6 +162,51 @@ module.exports = function (passport) {
 	})
 
 	router.get('/resetpw', authHandler.resetPw)
+
+	async function initCTFPostOutput(req) {
+		let output = {};
+		switch (req.params.vuln) {
+			case 'home':
+				const products = await db.Product.findAll({
+					where: {
+						name: {
+							[Op.like]: '%' + req.body.name + '%'
+						}
+					}
+				});
+				output = {
+					products,
+					searchTerm: req.body.name
+				}
+				break;
+		}
+		return output;
+	} 
+
+	router.post('/ctf/:vuln', authHandler.isAuthenticated, async function (req, res) {
+		const { vuln } = req.params;
+		let output = await initCTFPostOutput(req);
+		res.render('ctf/layout', {
+			vuln: vuln,
+			vuln_title: vulnDict['ctf'][vuln],
+			vuln_description: vuln + '/description',
+			vulnerabilities:vulnDict['ctf'],
+			path: '/ctf/' + vuln,
+			type: 'ctf',
+			// For the profile
+			userId: req.user.id,
+			userEmail: req.user.email,
+			userName: req.user.name,
+			output
+		}, function (err, html) {
+			if (err) {
+				console.log(err)
+				res.status(404).send('404')
+			} else {
+				res.send(html)
+			}
+		})
+	});
 
 	router.post('/login', passport.authenticate('login', {
 		// successRedirect: '/learn',

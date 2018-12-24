@@ -131,7 +131,10 @@ a {
 /* Mobile */
 @media only screen and (max-width: 767px) {
     .collapse {
-        min-height: 140px;
+        min-height: 220px;
+    }
+    .borderRight {
+        border-right: 0px;
     }
 }
 /* Mobile - IPad */

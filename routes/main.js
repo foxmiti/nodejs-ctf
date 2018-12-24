@@ -4,14 +4,20 @@ var authHandler = require('../core/authHandler')
 
 module.exports = function (passport) {
 	router.get('/', authHandler.isAuthenticated, function (req, res) {
-		res.redirect('/learn/ctf/home')
+		res.redirect('/learn')
 	})
 
 	router.get('/login', authHandler.isNotAuthenticated, function (req, res) {
 		res.render('login')
 	})
 
-	router.get('/learn/hacking-web/vulnerability/:vuln', authHandler.isAuthenticated, function (req, res) {
+	function renderWeb(req, res, mode) {
+		let path = '/learn/hacking-web/vulnerability/'+req.params.vuln;
+		let owaspPath = '/learn/hacking-web-owasp/vulnerability/'+req.params.vuln;
+		let layersPath = '/learn/hacking-web/vulnerability/'+req.params.vuln;
+		if (mode === 2) {
+			path = '/learn/hacking-web-owasp/vulnerability/'+req.params.vuln;
+		} 
 		res.render('hacking-web-vulnerabilities/layout', {
 			vuln: req.params.vuln,
 			vuln_title: vulnDict['hackingWeb'][req.params.vuln],
@@ -19,10 +25,10 @@ module.exports = function (passport) {
 			vuln_description: req.params.vuln + '/description',
 			vuln_reference: req.params.vuln + '/reference',
 			vulnerabilities:vulnDict['hackingWeb'],
-			path: '/learn/hacking-web/vulnerability/'+req.params.vuln,
-			owaspPath: '/learn/hacking-web-owasp/vulnerability/'+req.params.vuln,
-			layersPath: '/learn/hacking-web/vulnerability/'+req.params.vuln,
-			mode: 1,
+			path,
+			owaspPath,
+			layersPath,
+			mode,
 			type: 'web'
 		}, function (err, html) {
 			if (err) {
@@ -32,31 +38,15 @@ module.exports = function (passport) {
 				res.send(html)
 			}
 		})
+	}
+	router.get('/learn/hacking-web/vulnerability/:vuln', authHandler.isAuthenticated, function (req, res) {
+		renderWeb(req, res, 1);
 	})
 
 	router.get('/learn/hacking-web-owasp/vulnerability/:vuln', authHandler.isAuthenticated, function (req, res) {
-		res.render('hacking-web-vulnerabilities/layout', {
-			vuln: req.params.vuln,
-			vuln_title: vulnDict['hackingWeb'][req.params.vuln],
-			vuln_scenario: req.params.vuln + '/scenario',
-			vuln_description: req.params.vuln + '/description',
-			vuln_reference: req.params.vuln + '/reference',
-			vulnerabilities:vulnDict['hackingWeb'],
-			path: '/learn/hacking-web-owasp/vulnerability/'+req.params.vuln,
-			owaspPath: '/learn/hacking-web-owasp/vulnerability/'+req.params.vuln,
-			layersPath: '/learn/hacking-web/vulnerability/'+req.params.vuln,
-			mode: 2,
-			type: 'web'
-		}, function (err, html) {
-			if (err) {
-				console.log(err)
-				res.status(404).send('404')
-			} else {
-				res.send(html)
-			}
-		})
+		renderWeb(req, res, 2);
 	})
-
+	
 	router.get('/learn/cryptography/vulnerability/:vuln', authHandler.isAuthenticated, function (req, res) {
 		res.render('cryptography-vulnerabilities/layout', {
 			vuln: req.params.vuln,

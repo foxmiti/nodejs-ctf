@@ -10,20 +10,12 @@
         <div class='row'>
             <div class='col-md-12'>
                 <div class='row'>
-                    <% if(needSidebar){ %>
-                        <% include sidebar %>
-                        <div class='col-md-9' style='padding: 40px'>
-                            <h3><%=vuln_title%></h3>
-                            <br />
-                            <%- include(vuln_description) %>
-                        </div>
-                    <% } else {%> 
-                        <div class='col-md-12' style='padding: 40px'>
-                            <h3><%=vuln_title%></h3>
-                            <br />
-                            <%- include(vuln_description) %>
-                        </div>
-                    <% }%> 
+                    <% include sidebar %>
+                    <div class='col-md-9' style='padding: 40px'>
+                        <h3><%=vuln_title%></h3>
+                        <br />
+                        <%- include(vuln_description) %>
+                    </div>
                 </div>
             </div>
         </div>

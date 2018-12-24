@@ -7,52 +7,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand logo" style="color: coral;" href="/">Attack My Web</a>
+        <% if(type && type === 'ctf'){ %>
+            <a class="navbar-brand logo" style="color: coral;" href="/learn/ctf/home">Attack My Web</a>
+        <% } else{%>
+            <a class="navbar-brand logo" style="color: coral;" href="/">Secure Your Web</a>
+        <% } %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       
-      <ul class='nav navbar-nav navbar-right'>
-          <li class="borderLeft">
-            <% if(type && type === 'web'){ %>
-                <a style="color:white" href='/learn/hacking-web/vulnerability/info'>
-                    Hacking Web
-                </a>
-            <% } else{%>
-                <a href='/learn/hacking-web/vulnerability/info'>
-                    Hacking Web
-                </a>
-            <% } %>
-          </li>
-          <li class="borderLeft">
+        <ul class='nav navbar-nav navbar-right'>
             <% if(type && type === 'ctf'){ %>
-                <a style="color:white" href='/learn/ctf/info'>
-                    CTF
-                </a>
+                <% include ./attackHeader %>
             <% } else{%>
-                <a href='/learn/ctf/info'>
-                    CTF
-                </a>
+                <% include ./secureHeader %>
             <% } %>
-          </li>
-          <li class="borderLeft borderRight">
-            <% if(type && type === 'crypto'){ %>
-                <a style="color:white" href='/learn/cryptography/vulnerability/info'>
-                    Cryptography
-                </a>
-            <% } else{%>
-                <a href='/learn/cryptography/vulnerability/info'>
-                    Cryptography
-                </a>
+            <% if(messages.authenticated){ %>
+                <li class="ml50">
+                    <a href='/logout'>
+                        Logout
+                    </a>
+                </li>
             <% } %>
-          </li>
-          <% if(messages.authenticated){ %>
-          <li class="ml50">
-              <a href='/logout'>
-                  Logout
-              </a>
-          </li>
-          <% } %>
-      </ul>
+        </ul>
     </div>
   </div>
 </nav>

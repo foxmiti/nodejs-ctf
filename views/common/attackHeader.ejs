@@ -1,0 +1,44 @@
+<li class="borderLeft">
+    <% if(needSidebar){ %>
+        <a style="color:white" href='/learn/ctf/home'>
+            Dashboard
+        </a>
+    <% } else{%>
+        <a href='/learn/ctf/home'>
+            Dashboard
+        </a>
+    <% } %>
+</li>
+<li class="borderLeft">
+    <% if(path === '/learn/ctf/shop'){ %>
+        <a style="color:white" href='/learn/ctf/shop'>
+            Shopping Cart
+        </a>
+    <% } else{%>
+        <a href='/learn/ctf/shop'>
+            Shopping Cart
+        </a>
+    <% } %>
+</li>
+<li class="borderLeft">
+    <% if(path === '/learn/ctf/profile'){ %>
+        <a style="color:white" href='/learn/ctf/profile'>
+            My Profile
+        </a>
+    <% } else{%>
+        <a href='/learn/ctf/profile'>
+            My Profile
+        </a>
+    <% } %>
+</li>
+<li class="borderLeft borderRight">
+    <% if(path === '/learn/ctf/trash'){ %>
+        <a style="color:white" href='/learn/ctf/trash'>
+            Trash
+        </a>
+    <% } else{%>
+        <a href='/learn/ctf/trash'>
+            Trash
+        </a>
+    <% } %>
+</li>

@@ -4,7 +4,7 @@ var authHandler = require('../core/authHandler')
 
 module.exports = function (passport) {
 	router.get('/', authHandler.isAuthenticated, function (req, res) {
-		res.redirect('/learn')
+		res.redirect('/learn/ctf/home')
 	})
 
 	router.get('/login', authHandler.isNotAuthenticated, function (req, res) {
@@ -95,7 +95,6 @@ module.exports = function (passport) {
 	})
 
 	router.get('/learn', authHandler.isAuthenticated, function (req, res) {
-		console.log(vulnDict);
 		const keysHackingWeb = Object.keys(vulnDict['hackingWeb']);
 		const mainKeyHackingWeb = keysHackingWeb[0];
 
@@ -125,13 +124,15 @@ module.exports = function (passport) {
 	router.get('/resetpw', authHandler.resetPw)
 
 	router.post('/login', passport.authenticate('login', {
-		successRedirect: '/learn',
+		// successRedirect: '/learn',
+		successRedirect: '/learn/ctf/home',
 		failureRedirect: '/login',
 		failureFlash: true
 	}))
 
 	router.post('/register', passport.authenticate('signup', {
-		successRedirect: '/learn',
+		// successRedirect: '/learn',
+		successRedirect: '/learn/ctf/home',
 		failureRedirect: '/register',
 		failureFlash: true
 	}))

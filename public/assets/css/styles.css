@@ -18,6 +18,7 @@ a {
 .retroFamily {
     font-family: monospace;
 }
+
 .navbar-right {
     position: absolute;
     right: 40px;
@@ -27,7 +28,6 @@ a {
     /* background-color: red; */
     font-family: monospace;
 }
-
 .blog {
     border-radius:5px;
     background-color: #292e3d;
@@ -128,6 +128,13 @@ a {
     margin-left: 20px;
 }
 
+/* Mobile */
+@media only screen and (max-width: 767px) {
+    .collapse {
+        min-height: 140px;
+    }
+}
+/* Mobile - IPad */
 @media only screen and (max-width: 992px) {
     .blog {
         font-size: 40px;

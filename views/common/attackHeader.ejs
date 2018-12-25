@@ -43,15 +43,25 @@
     <% } %>
 </li>
 <li class="borderLeft borderRight">
-    <% if(path === '/ctf/trash'){ %>
-        <a style="color:white" href='/ctf/trash'>
-            <i class="fa fa-trash"></i> Trash
+    <% if(path === '/ctf/contracts'){ %>
+        <a style="color:white" href='/ctf/contracts'>
+            <i class="fa fa-file"></i> Contracts
         </a>
     <% } else{%>
-        <a href='/ctf/trash'>
-            <i class="fa fa-trash"></i> Trash
+        <a href='/ctf/contracts'>
+            <i class="fa fa-file"></i> Contracts
         </a>
     <% } %>
+</li>
+<li class="borderLeft borderRight">
+    <a>
+        Current: 
+        <% if(-200 < 0){ %>
+            <span style="color:coral"><i class="fa fa-dollar"></i> -200</span>
+        <% } else { %>
+            <span style="color:green"><i class="fa fa-dollar"></i> -200</span>
+        <% } %>
+    </a>
 </li>
 
 <script>

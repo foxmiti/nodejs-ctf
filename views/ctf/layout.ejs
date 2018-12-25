@@ -4,7 +4,13 @@
     <% include ../common/head %>
 </head>
 <body>
-    <% needSidebar = (path === '/ctf/home' || path === '/ctf/create-new-document' || path === '/ctf/sign-document' || path === '/ctf/upload-document' || path === '/ctf/edit-document') %>
+    <% needSidebar = (
+        path === '/ctf/home' ||
+        path === '/ctf/create-new-document' ||
+        path === '/ctf/sign-document' ||
+        path === '/ctf/upload-document' ||
+        path === '/ctf/edit-document' ||
+        path === '/ctf/trash') %>
     <% include ../common/header %>
     <div class='container' style='margin-left: 0px; padding-left: 0px;'>
         <div class='row'>

@@ -1,15 +1,11 @@
-<div class='markdown'>
-<div class='row'><div class='col-md-12'>
 
-    <div class='row'>
+<div class='row'>
         <div class='col-md-6 col-md-offset-5'>
-            <h2> User Profile </h2>
-
             <% include ../../common/infoBoxes %>
 
-            <form id="editUser" name="editUser" action="/app/useredit" method="post">
+            <form id="editUser" name="editUser" action="/ctf/profile" method="post">
                 <fieldset>
-                    <h3> Update User Information </h3><br>
+                    <h4> Update User Information </h4><br>
                     
                     <input type="hidden" name="id" value="<%= userId %>" id="editUser_userId" />
                     
@@ -28,7 +24,7 @@
                             <input type="text" name="email" value="<%= userEmail %>" id="editUser_email" class="form-control" placeholder="Enter your email" />
                         </div>
                     </div><br>
-                    <h3> Change Password </h3><br>
+                    <h4> Change Password </h4><br>
                     <div class="form-group ">
                         <label class="  control-label" for="editUser_password">New Password </label>
                         <div class="  controls">
@@ -61,4 +57,3 @@
     </div>
 
 </div></div>
-</div>

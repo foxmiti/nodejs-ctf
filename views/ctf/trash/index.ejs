@@ -1,18 +1,50 @@
-<div class="markdown">
-        <p>There is a web application where the clients' passwords are stored in MD5 and without salted.</p>
+<div class='row'>
+    <div class='col-md-12'>
+        <h2 class='pull-right'>
+            <a href='#' class='btn btn-primary' data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i> Search Product</a>
+        </h2>
+    </div>
+    <div class='col-md-12'>
+        
+        <% include filters %>
+        <% include ../../common/infoBoxes %>
 
-        <p>As part of a security improvement process we want to modify the storage of passwords to save them summarized with SHA256 and salted.</p>
-        
-        <p>In order to avoid resetting the password to all users; our development team has been asked to automatically provision those passwords that we are currently able to "reverse" for the maximum number of possible users.</p>
-        
-        <p>The exact definition of the new password storage is available in the following file:</p>
-        <a target="_blank" href="https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt">https://github.com/Tusabras/nodejs-ctf/blob/master/public/assets/docs/passwords.txt</a>
-        <br /><br /><br />
-        <p>The attached file [passwords.txt] contains an extract of the current password hashes of the users in MD5.</p>
-        <p>You must generate:</p>
-        <ul>
-            <li><p>A file [plain.txt] that contains the passwords in plane that could have been reversed (leaving blank lines, for those that do not)</p></li>
-            <li><p>A file [new_passwords.txt] that contains the hashes of the new passwords already summarized and hashed (leaving blank lines again, for those that could not be calculated)</p></li>
-            <li><p>The program or script used (if it exists) to automate the process of converting passwords into MD5 and generating the requested files</p></li>
-        </ul>
-</div>
+        <table class='table'>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Tags</th>
+                <th>Description</th>
+                <th style="text-align: center">Approved</th>
+                <th style="text-align: center"></th>
+                <th style="text-align: center"></th>
+            </tr>
+            <% if (output && output.products) { for(var i=0; i<output.products.length; i++) { %>
+            <tr>
+                <td><%- output.products[i].id %></td>
+                <td><%- output.products[i].name %></td>
+                <td><%- output.products[i].code %></td>
+                <td><%- output.products[i].tags %></td>
+                <td><%- output.products[i].description %></td>
+                <td style="text-align: center">
+                    <% if (!output.products[i].isSigned) { %> 
+                        <i style="color:coral;" class="fa fa-times"></i>
+                    <% } else { %>
+                        <i style="color:green;" class="fa fa-check"></i>
+                    <% } %>
+                </td>
+                <td style="text-align: center">
+                    <a href="/ctf/download-document?id=<%=output.products[i].id%>"><i class="fa fa-undo"></i> Recover doc</a>
+                </td>
+                <td style="text-align: center">
+                    <a href="/ctf/download-document?id=<%=output.products[i].id%>"><i class="fa fa-trash"></i> Delete forever</a>
+                </td>
+            </tr>
+            <% } }%>
+        </table>
+
+            <% include searchModal %>
+
+        </div>
+    </div>

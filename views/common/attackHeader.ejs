@@ -9,14 +9,14 @@
         </a>
     <% } %>
 </li>
-<li class="borderLeft">
+<li id="admin-header" class="borderLeft">
     <% if(path === '/ctf/shop'){ %>
-        <a style="color:white" href='/ctf/shop'>
-            <i class="fa fa-shopping-cart"></i> Shopping Cart
+        <a style="color:white" href='/ctf/documents-to-sign'>
+            <i class="fa fa-pencil"></i> Pending docs
         </a>
     <% } else{%>
-        <a href='/ctf/shop'>
-            <i class="fa fa-shopping-cart"></i> Shopping Cart 
+        <a href='/ctf/documents-to-sign'>
+            <i class="fa fa-pencil"></i> Pending docs 
         </a>
     <% } %>
 </li>
@@ -31,6 +31,17 @@
         </a>
     <% } %>
 </li>
+<li class="borderLeft">
+    <% if(path === '/ctf/diary'){ %>
+        <a style="color:white" href='/ctf/diary'>
+            <i class="fa fa-book"></i> Diary
+        </a>
+    <% } else{%>
+        <a href='/ctf/diary'>
+            <i class="fa fa-book"></i> Diary
+        </a>
+    <% } %>
+</li>
 <li class="borderLeft borderRight">
     <% if(path === '/ctf/trash'){ %>
         <a style="color:white" href='/ctf/trash'>
@@ -42,3 +53,11 @@
         </a>
     <% } %>
 </li>
+
+<script>
+    var isAdmin = <%= admin %>;
+    if (!isAdmin) {
+        var div = document.getElementById('admin-header');
+        div.style.display = "none";
+    }
+</script>

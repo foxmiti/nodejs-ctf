@@ -1,0 +1,54 @@
+<div class='row'>
+        <div class='col-md-12'>
+            <h2 class='pull-right'>
+                <a href='#' class='btn btn-primary' data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i> Search Product</a>
+            </h2>
+        </div>
+        <div class='col-md-12'>
+            
+            <% include filters %>
+            <% include ../../common/infoBoxes %>
+    
+            <table class='table'>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Tags</th>
+                    <th>Description</th>
+                    <th style="text-align: center">Approved</th>
+                    <th style="text-align: center"></th>
+                    <th style="text-align: center"></th>
+                </tr>
+                <% if (output && output.products) { for(var i=0; i<output.products.length; i++) { %>
+                <tr>
+                    <td><%- output.products[i].id %></td>
+                    <td><%- output.products[i].name %></td>
+                    <td><%- output.products[i].code %></td>
+                    <td><%- output.products[i].tags %></td>
+                    <td><%- output.products[i].description %></td>
+                    <td style="text-align: center">
+                        <% if (!output.products[i].isSigned) { %> 
+                            </i> <a href='/ctf/documents-to-sign'><i style="color:coral;" class="fa fa-times"></i> Approve now!</a>
+                        <% } else { %>
+                            <i style="color:green;" class="fa fa-check"></i>
+                        <% } %>
+                    </td>
+                    <td style="text-align: center">
+                        <% if (!output.products[i].isSigned) { %> 
+                            <a href='/ctf/edit-document?id=<%=output.products[i].id%>'><i class="fa fa-pencil"></i> Edit</a>
+                        <% } else { %>
+                            <a href="/ctf/download-document?id=<%=output.products[i].id%>"><i class="fa fa-download"></i> Download</a>
+                        <% } %>
+                    </td>
+                    <td style="text-align: center">
+                        <a href="/ctf/download-document?id=<%=output.products[i].id%>"><i class="fa fa-trash"></i> Delete</a>
+                    </td>
+                </tr>
+                <% } }%>
+            </table>
+    
+                <% include searchModal %>
+    
+            </div>
+        </div>

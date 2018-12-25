@@ -9,13 +9,13 @@
     <div class='col-md-12'>
     <% include ../../common/infoBoxes %>
 
-    <form id="addEditProduct" name="addEditProduct" action="/app/modifyproduct" method="post">
+    <form id="addEditProduct" name="addEditProduct" action="/ctf/edit-document" method="post">
         <fieldset>
 
             <input type="hidden" name="id" value="<%= output.product.id %>" id="addEditProduct_product_id" />
 
             <div class="form-group ">
-                <label class="  control-label" for="addEditProduct_product_name">Product Name </label>
+                <label class="  control-label" for="addEditProduct_product_name">Document Title</label>
                 <div class="  controls">
 
                     <input type="text" name="name" value="<%= output.product.name %>" id="addEditProduct_product_name" class="form-control" placeholder="Enter product name" />
@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group ">
-                <label class="  control-label" for="addEditProduct_product_code">Product Code </label>
+                <label class="  control-label" for="addEditProduct_product_code">Ref. nº </label>
                 <div class="  controls">
 
                     <input type="text" name="code" value="<%= output.product.code %>" id="addEditProduct_product_code" class="form-control" placeholder="Enter product code" />
@@ -31,7 +31,7 @@
             </div>
 
             <div class="form-group ">
-                <label class="  control-label" for="addEditProduct_product_tags">Product Tags </label>
+                <label class="  control-label" for="addEditProduct_product_tags">Tags </label>
                 <div class="  controls">
 
                     <input type="text" name="tags" value="<%= output.product.tags %>" id="addEditProduct_product_tags" class="form-control" placeholder="Enter product tags eg. Tag1,Tag2,Tag3" />
@@ -39,9 +39,9 @@
             </div>
             
             <div class="form-group ">
-                <label class="  control-label" for="addEditProduct_product_description">Product Description </label>
+                <label class="  control-label" for="addEditProduct_product_description">Content </label>
                 <div class="  controls">
-                    <textarea name="description" cols="" rows="" id="addEditProduct_product_description" class="form-control"><%= output.product.description %></textarea>
+                    <textarea name="description" cols="" rows="10" id="addEditProduct_product_description" class="form-control"><%= output.product.description %></textarea>
                 </div>
             </div>
 

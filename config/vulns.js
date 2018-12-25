@@ -20,6 +20,5 @@ module.exports = {
 	'ctf': {
 		'home': 'My documents',
 		'create-new-document': 'Create new document',
-		'sign-document': 'Sign document',
 	}
 }

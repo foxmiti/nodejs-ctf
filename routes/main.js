@@ -71,11 +71,13 @@ module.exports = function (passport) {
 		let output = {};
 		switch (req.params.vuln) {
 			case 'home':
+			case 'documents-to-sign':
 				const products = await db.Product.findAll();
 				output = {
 					products
 				}
 				break;
+			
 			case 'create-new-document':
 			case 'edit-document':
 				const isCreateNewDocument = req.params.vuln === 'create-new-document';
@@ -99,6 +101,12 @@ module.exports = function (passport) {
 					}
 				}
 				break;
+			case 'trash':
+				const trashProducts = await db.Product.findAll();
+				output = {
+					products: trashProducts
+				}
+				break;
 			case 'upload-document':
 				output = {
 					legacy: req.query.legacy,
@@ -112,6 +120,7 @@ module.exports = function (passport) {
 		let output = await initCTFGetOutput(req);
 		
 		res.render('ctf/layout', {
+			admin: (req.user.role === 'admin'),
 			vuln: vuln,
 			vuln_title: vulnDict['ctf'][vuln],
 			vuln_description: vuln + '/index',
@@ -122,7 +131,7 @@ module.exports = function (passport) {
 			userId: req.user.id,
 			userEmail: req.user.email,
 			userName: req.user.name,
-			output
+			output,
 		}, function (err, html) {
 			if (err) {
 				console.log(err)
@@ -163,10 +172,13 @@ module.exports = function (passport) {
 
 	router.get('/resetpw', authHandler.resetPw)
 
+	
 	async function initCTFPostOutput(req) {
 		let output = {};
 		switch (req.params.vuln) {
 			case 'home':
+			case 'documents-to-sign':
+			case 'trash':
 				const products = await db.Product.findAll({
 					where: {
 						name: {
@@ -179,6 +191,63 @@ module.exports = function (passport) {
 					searchTerm: req.body.name
 				}
 				break;
+
+			case 'edit-document':
+				try {
+					if (!req.body.id || req.body.id == '') {
+						req.body.id = 0
+					}
+					const product = await db.Product.find({
+						where: {
+							'id': req.body.id
+						}
+					});
+					if (!product) {
+						product = new db.Product()
+					}
+					product.code = req.body.code
+					product.name = req.body.name
+					product.description = req.body.description
+					product.tags = req.body.tags
+					output = {
+						product
+					}
+					const newProduct = await product.save();
+					if (newProduct) {
+						req.flash('success', 'Product added/modified!')
+					}
+				} catch(err) {
+					output = {
+						product
+					}
+					req.flash('danger',err)
+				}
+				break;
+			case 'profile':
+				const user = await db.User.find({
+					where: {
+						'id': req.body.id
+					}		
+				});
+				if (req.body.password.length > 0) {
+					if (req.body.password.length > 0) {
+						if (req.body.password === req.body.cpassword) {
+							user.password = bCrypt.hashSync(req.body.password, bCrypt.genSaltSync(10), null)
+						} else{
+							req.flash('warning', "Passwords don't match")
+							return		
+						}
+					} else{
+						req.flash('warning', 'Invalid Password')
+						return
+					}
+				}
+				user.email = req.body.email
+				user.name = req.body.name
+				await user.save()
+				req.flash('success',"Updated successfully")
+				break;
+
 		}
 		return output;
 	} 
@@ -186,17 +255,23 @@ module.exports = function (passport) {
 	router.post('/ctf/:vuln', authHandler.isAuthenticated, async function (req, res) {
 		const { vuln } = req.params;
 		let output = await initCTFPostOutput(req);
+		let userEmail = req.user.email;
+		let userName = req.user.name;
+		if (vuln === 'profile') {
+			userEmail = req.body.email;
+			userName = req.body.name;
+		}
 		res.render('ctf/layout', {
+			admin: (req.user.role === 'admin'),
 			vuln: vuln,
 			vuln_title: vulnDict['ctf'][vuln],
 			vuln_description: vuln + '/index',
 			vulnerabilities:vulnDict['ctf'],
 			path: '/ctf/' + vuln,
 			type: 'ctf',
-			// For the profile
 			userId: req.user.id,
-			userEmail: req.user.email,
-			userName: req.user.name,
+			userEmail,
+			userName,
 			output
 		}, function (err, html) {
 			if (err) {

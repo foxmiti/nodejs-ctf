@@ -1,0 +1,7 @@
+sonar-scanner \
+  -Dsonar.projectKey=Tusabras_nodejs-ctf \
+  -Dsonar.organization=tusabras-github \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=https://sonarcloud.io \
+  -Dsonar.login=643d731489fdb8f92f9f8c2053e2ba301e1fc180
+

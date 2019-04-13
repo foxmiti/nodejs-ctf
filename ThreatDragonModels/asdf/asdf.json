@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "title": "asdf",
+    "owner": "asd",
+    "description": "asdf"
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "asdf"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "asdf",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
+    "reviewer": "asd"
+  }
+}
